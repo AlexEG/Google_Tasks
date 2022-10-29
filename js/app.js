@@ -1,6 +1,6 @@
 let myTasks = ['task 1', 'task 2', 'task 3'];
 
-mymyTasks.forEach(function (todoName) {
+myTasks.forEach(function (todoName) {
   let elem = document.createElement('div');
   elem.innerText = todoName;
   document.body.appendChild(elem);
@@ -8,6 +8,8 @@ mymyTasks.forEach(function (todoName) {
 
 // make a add todo button
 
-function addNew() {
-  myTasks.push(' test');
+function addTodo() {
+  let textbox = document.getElementById('typeYourTodo');
+  let title = textbox.value;
+  myTasks.push(title);
 }
