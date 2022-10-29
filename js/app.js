@@ -1,10 +1,15 @@
 // make a add todo button
 
+//const savedTodos = JSON.parse(localStorage.getItem('todos'));
+//if (Array.isArray(savedTodos)) {
+//
+//} else {
 let todos = [
   { title: 'task 1', dueDate: '2022-10-30', id: 'id1' },
   { title: 'task 2', dueDate: '2022-10-29', id: 'id2' },
   { title: 'task 3', dueDate: '2022-10-28', id: 'id3' },
 ];
+//}
 
 render();
 
@@ -30,12 +35,13 @@ function removeTodo(idToDelete) {
   });
   saveTodos();
 }
-
 // to save your task so that you can see it later
 function saveTodos() {
   // local storage can only stor strings so we have to convirt the array to string
   localStorage.setItem('todos', JSON.stringify(todos));
 }
+
+//add a new todo
 
 function addTodo() {
   const textbox = document.getElementById('typeYourTodo');
