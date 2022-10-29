@@ -1,6 +1,6 @@
 // make a add todo button
 
-const todos = [
+let todos = [
   { title: 'task 1', dueDate: '2022-10-30', id: 'id1' },
   { title: 'task 2', dueDate: '2022-10-29', id: 'id2' },
   { title: 'task 3', dueDate: '2022-10-28', id: 'id3' },
@@ -25,7 +25,19 @@ function addTodo() {
 
   render();
 }
-function deleteTodo() {}
+function deleteTodo(event) {
+  const deleteButton = event.target;
+  const idToDelete = deleteButton.id;
+
+  todos = todos.filter(function (todo) {
+    if (todo.id === idToDelete) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  render();
+}
 
 function render() {
   document.getElementById('todo_List').innerHTML = '';
