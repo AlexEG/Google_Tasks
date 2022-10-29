@@ -17,6 +17,7 @@ function createTodo(title, dueDate) {
     dueDate: dueDate,
     id: id,
   });
+  saveTodos();
 }
 // Delete todo
 function removeTodo(idToDelete) {
@@ -27,6 +28,13 @@ function removeTodo(idToDelete) {
       return true;
     }
   });
+  saveTodos();
+}
+
+// to save your task so that you can see it later
+function saveTodos() {
+  // local storage can only stor strings so we have to convirt the array to string
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 function addTodo() {
