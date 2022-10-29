@@ -1,15 +1,15 @@
-// make a add todo button
+let todos;
 
-//const savedTodos = JSON.parse(localStorage.getItem('todos'));
-//if (Array.isArray(savedTodos)) {
-//
-//} else {
-let todos = [
-  { title: 'task 1', dueDate: '2022-10-30', id: 'id1' },
-  { title: 'task 2', dueDate: '2022-10-29', id: 'id2' },
-  { title: 'task 3', dueDate: '2022-10-28', id: 'id3' },
-];
-//}
+const savedTodos = JSON.parse(localStorage.getItem('todos'));
+if (Array.isArray(savedTodos)) {
+  todos = savedTodos;
+} else {
+  todos = [
+    { title: 'task 1', dueDate: '2022-10-30', id: 'id1' },
+    { title: 'task 2', dueDate: '2022-10-29', id: 'id2' },
+    { title: 'task 3', dueDate: '2022-10-28', id: 'id3' },
+  ];
+}
 
 render();
 
