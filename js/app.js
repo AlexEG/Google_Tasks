@@ -30,7 +30,7 @@ function deleteTodo(event) {
   const idToDelete = deleteButton.id;
 
   todos = todos.filter(function (todo) {
-    if (todo.id === idToDelete) {
+    if (todo.id == idToDelete) {
       return false;
     } else {
       return true;
