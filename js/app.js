@@ -1,9 +1,9 @@
 // make a add todo button
 
 const todos = [
-  { title: 'task 1', dueDate: '2022-10-30' },
-  { title: 'task 2', dueDate: '2022-10-29' },
-  { title: 'task 3', dueDate: '2022-10-28' },
+  { title: 'task 1', dueDate: '2022-10-30', id: 'id1' },
+  { title: 'task 2', dueDate: '2022-10-29', id: 'id2' },
+  { title: 'task 3', dueDate: '2022-10-28', id: 'id3' },
 ];
 
 render();
@@ -14,14 +14,18 @@ function addTodo() {
 
   const datePicker = document.getElementById('date-picker');
   const dueDate = datePicker.value;
+  //cool way to get an id in javascript
+  const id = new Date().getTime();
 
   todos.push({
     title: title,
     dueDate: dueDate,
+    id: id,
   });
 
   render();
 }
+function deleteTodo() {}
 
 function render() {
   document.getElementById('todo_List').innerHTML = '';
@@ -32,6 +36,9 @@ function render() {
 
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
+    deleteButton.style = 'margin-left:15px';
+    deleteButton.onclick = deleteTodo;
+    deleteButton.id = todo.id;
     element.appendChild(deleteButton);
 
     const todoList = document.getElementById('todo_List');
