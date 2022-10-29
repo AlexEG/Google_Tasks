@@ -1,26 +1,35 @@
 // make a add todo button
 
-let myTasks = ['task 1', 'task 2', 'task 3'];
+const todos = [
+  { title: 'task 1', dueDate: '2022-10-30' },
+  { title: 'task 2', dueDate: '2022-10-29' },
+  { title: 'task 3', dueDate: '2022-10-28' },
+];
 
-letMeSeeMyTodo();
+render();
 
 function addTodo() {
   const textbox = document.getElementById('typeYourTodo');
   const title = textbox.value;
 
-  const date = document.getElementById('date');
-  myTasks.push(title);
-  const duDate = date.value;
-  letMeSeeMyTodo();
+  const datePicker = document.getElementById('date-picker');
+  const dueDate = datePicker.value;
+
+  todos.push({
+    title: title,
+    dueDate: dueDate,
+  });
+
+  render();
 }
 
-function letMeSeeMyTodo() {
+function render() {
   document.getElementById('todo_List').innerHTML = '';
 
-  myTasks.forEach(function (todoName) {
-    let elem = document.createElement('div');
-    elem.innerText = todoName;
-    let todoList = document.getElementById('todo_List');
-    todoList.appendChild(elem);
+  todos.forEach(function (todo) {
+    const element = document.createElement('div');
+    element.innerText = todo.title + ' ' + todo.dueDate;
+    const todoList = document.getElementById('todo_List');
+    todoList.appendChild(element);
   });
 }
