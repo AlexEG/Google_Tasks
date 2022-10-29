@@ -1,17 +1,18 @@
 // make a add todo button
 
 let myTasks = ['task 1', 'task 2', 'task 3'];
-letMeSeeMyTodo();
-function addTodo() {
-  let textbox = document.getElementById('typeYourTodo');
-  let title = textbox.value;
-  myTasks.push(title);
 
+letMeSeeMyTodo();
+
+function addTodo() {
+  const textbox = document.getElementById('typeYourTodo');
+  const title = textbox.value;
+
+  const date = document.getElementById('date');
+  myTasks.push(title);
+  const duDate = date.value;
   letMeSeeMyTodo();
 }
-
-// so I can't see the new todo on the page
-// so to fix that ...
 
 function letMeSeeMyTodo() {
   document.getElementById('todo_List').innerHTML = '';
