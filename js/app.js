@@ -8,13 +8,8 @@ let todos = [
 
 render();
 
-function addTodo() {
-  const textbox = document.getElementById('typeYourTodo');
-  const title = textbox.value;
-
-  const datePicker = document.getElementById('date-picker');
-  const dueDate = datePicker.value;
-  //cool way to get an id in javascript
+// create todo
+function createTodo(title, dueDate) {
   const id = new Date().getTime();
 
   todos.push({
@@ -22,13 +17,9 @@ function addTodo() {
     dueDate: dueDate,
     id: id,
   });
-
-  render();
 }
-function deleteTodo(event) {
-  const deleteButton = event.target;
-  const idToDelete = deleteButton.id;
-
+// Delete todo
+function removeTodo(idToDelete) {
   todos = todos.filter(function (todo) {
     if (todo.id == idToDelete) {
       return false;
@@ -36,6 +27,22 @@ function deleteTodo(event) {
       return true;
     }
   });
+}
+
+function addTodo() {
+  const textbox = document.getElementById('typeYourTodo');
+  const title = textbox.value;
+
+  const datePicker = document.getElementById('date-picker');
+  const dueDate = datePicker.value;
+  //cool way to get an id in javascript
+  createTodo(title, dueDate);
+  render();
+}
+function deleteTodo(event) {
+  const deleteButton = event.target;
+  const idToDelete = deleteButton.id;
+  removeTodo(idToDelete);
   render();
 }
 
