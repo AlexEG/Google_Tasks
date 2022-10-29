@@ -29,6 +29,11 @@ function render() {
   todos.forEach(function (todo) {
     const element = document.createElement('div');
     element.innerText = todo.title + ' ' + todo.dueDate;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText = 'Delete';
+    element.appendChild(deleteButton);
+
     const todoList = document.getElementById('todo_List');
     todoList.appendChild(element);
   });
